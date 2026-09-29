@@ -405,22 +405,58 @@ function WaButton({ label, text }: { label: string; text: string }) {
 }
 
 function SaleCard({ item }: { item: SaleListing }) {
+  const prices = item.amount.split("|").map((part) => part.trim());
+  const detailed = Boolean(item.features?.length);
   return (
-    <article className={cardClass()}>
+    <article className={cn(cardClass(), detailed && "self-start")}>
       <PhotoSlider images={item.images} alt={item.alt} frameClass="aspect-[4/3] w-full object-cover" />
       <div className="flex flex-1 flex-col gap-3 p-4">
-        <div className="flex items-center justify-between gap-2">
-          <span className="border border-estate-accent px-2 py-1 text-xs tracking-wide text-estate-accent">₦ NGN</span>
-          <span className="border border-estate-line px-3 py-1 font-display text-xl text-estate-accent tabular-nums">
-            {item.amount}
-          </span>
-        </div>
+        {detailed ? (
+          <div className="flex flex-col gap-2">
+            <span className="w-fit border border-estate-accent px-2 py-1 text-xs tracking-wide text-estate-accent">
+              ₦ NGN
+            </span>
+            {prices.map((price) => (
+              <p key={price} className="border border-estate-line px-3 py-1 text-sm text-estate-accent tabular-nums">
+                {price}
+              </p>
+            ))}
+          </div>
+        ) : (
+          <div className="flex items-center justify-between gap-2">
+            <span className="border border-estate-accent px-2 py-1 text-xs tracking-wide text-estate-accent">
+              ₦ NGN
+            </span>
+            <span className="border border-estate-line px-3 py-1 font-display text-xl text-estate-accent tabular-nums">
+              {item.amount}
+            </span>
+          </div>
+        )}
         <h3 className="font-display text-3xl">{item.name}</h3>
-        <PlaceLine area={item.area} city={item.city} />
+        {item.placeLabel ? (
+          <p className="inline-flex items-start gap-2 text-sm text-estate-accent">
+            <MapPin className="mt-0.5 size-4 shrink-0" aria-hidden />
+            {item.placeLabel}
+          </p>
+        ) : (
+          <PlaceLine area={item.area} city={item.city} />
+        )}
         <Spec>{item.spec}</Spec>
+        {item.features ? (
+          <ul className="flex flex-col gap-1 text-xs text-estate-muted">
+            {item.features.map((feature) => (
+              <li key={feature}>{feature}</li>
+            ))}
+          </ul>
+        ) : null}
+        {item.notice ? (
+          <p className="border border-estate-accent/60 px-3 py-2 text-xs leading-5 text-estate-accent">{item.notice}</p>
+        ) : null}
         <WaButton
-          label="Inquire About Buying"
-          text={`Hi DEstylique Homes, I am inquiring about buying ${item.name} in ${item.area}.`}
+          label={item.ctaLabel ?? "Inquire About Buying"}
+          text={
+            item.ctaText ?? `Hi DEstylique Homes, I am inquiring about buying ${item.name} in ${item.area}.`
+          }
         />
       </div>
     </article>

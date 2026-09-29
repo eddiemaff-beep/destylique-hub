@@ -58,6 +58,7 @@ export const abujaAreas = [
   "Garki",
   "Gwarinpa",
   "Katampe",
+  "Guzape District",
   "Lugbe District",
   "Central Area Phase 2",
   "Central Business District",
@@ -124,7 +125,15 @@ type CatalogItem = Place &
     alt: string;
   };
 
-export type SaleListing = CatalogItem & { amount: string; spec: string };
+export type SaleListing = CatalogItem & {
+  amount: string;
+  spec: string;
+  features?: readonly string[];
+  notice?: string;
+  placeLabel?: string;
+  ctaLabel?: string;
+  ctaText?: string;
+};
 export type RentListing = CatalogItem & { stay: "rent" | "shortlet"; price: string; spec: string };
 export type BuildListing = CatalogItem & { stage: string; progress: number };
 export type DoneListing = CatalogItem;
@@ -132,6 +141,37 @@ export type DoneListing = CatalogItem;
 export type AnyListing = SaleListing | RentListing | BuildListing | DoneListing;
 
 export const saleListings: SaleListing[] = [
+  {
+    id: "colours-terraces",
+    name: "COLOURS TERRACES",
+    propertyType: "Houses",
+    subtype: "Terraced Duplex",
+    city: "Abuja",
+    area: "Guzape District",
+    street: "Abdulkarim Adisa Close",
+    amount: "Middle Units: ₦380,000,000 | Corner Units: ₦400,000,000",
+    spec: "4-Bedroom Terraced House (3 Floors + 1-Room BQ + Lock-up Garage)",
+    features: [
+      "Fully Automated Smart Home",
+      "Luxury Fitted Kitchen",
+      "3 Floors",
+      "Private Lock-up Garage",
+      "Fenced Gate Security",
+      "1-Room Boys' Quarters (BQ)",
+    ],
+    notice: "N.B: Solid payment structure only — No part payments accepted.",
+    placeLabel: "Abdulkarim Adisa Close, Guzape District, Abuja",
+    ctaLabel: "Book Viewing / Inquire",
+    ctaText:
+      "Hi DEstylique Homes, I am on the website and would love to book a viewing or get more info regarding the 4-Bedroom Colours Terraces in Guzape District, Abuja.",
+    images: [
+      "/assets/properties/guzape-front.jpg",
+      "/assets/properties/guzape-compound.jpg",
+      "/assets/properties/guzape-kitchen.jpg",
+      "/assets/properties/guzape-interior.jpg",
+    ],
+    alt: "COLOURS TERRACES, a 4-bedroom terraced house in Guzape District, Abuja",
+  },
   {
     id: "stone-court",
     name: "Stone Court",
