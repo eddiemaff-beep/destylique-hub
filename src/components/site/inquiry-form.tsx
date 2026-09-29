@@ -21,11 +21,11 @@ const shell = {
     focus: "focus-visible:outline-gold",
   },
   estate: {
-    line: "border-estate-line",
+    line: "border-estate-line focus:border-estate-accent",
     muted: "text-estate-muted",
     surface: "bg-estate-surface",
-    solid: "bg-estate-accent text-estate-accent-fg",
-    ghost: "border border-estate-line text-estate-fg",
+    solid: "border border-estate-accent bg-transparent text-estate-accent",
+    ghost: "border border-estate-accent text-estate-fg",
     focus: "focus-visible:outline-estate-accent",
   },
 } as const;

@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none" role="img" aria-label="DEstylique Homes">
+  <circle cx="32" cy="32" r="30" fill="#0C121B" fill-opacity="0.72" stroke="#D4AF37" stroke-width="1.5"/>
+  <circle cx="32" cy="32" r="24" stroke="#D4AF37" stroke-opacity="0.55"/>
+  <text x="32" y="30" text-anchor="middle" fill="#D4AF37" font-family="Georgia, serif" font-size="14">DE</text>
+  <text x="32" y="42" text-anchor="middle" fill="#F6F1E8" font-family="Georgia, serif" font-size="6" letter-spacing="1.4">HOMES</text>
+</svg>

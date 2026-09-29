@@ -22,8 +22,8 @@
   --color-estate-muted: #a9b6c6;
   --color-estate-line: #243044;
   --color-estate-surface: #141c28;
-  --color-estate-accent: #9eb4c9;
-  --color-estate-accent-fg: #0c121b;
+  --color-estate-accent: #d4af37;
+  --color-estate-accent-fg: #141210;
 
   --text-display: clamp(2.75rem, 1.5rem + 4.2vw, 5.25rem);
   --text-display--line-height: 0.96;
@@ -186,6 +186,11 @@
 
   .delay-3 {
     animation-delay: 210ms;
+  }
+
+  .row-scroll {
+    scrollbar-width: thin;
+    scrollbar-color: var(--color-estate-accent) transparent;
   }
 
   .sheet {

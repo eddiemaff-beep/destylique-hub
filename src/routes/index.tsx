@@ -1,6 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowUpRight } from "lucide-react";
-import { house } from "@/content/site";
+import { house, hubFashion, hubHomes } from "@/content/site";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -37,10 +37,14 @@ function Hub() {
           />
           <span className="scrim-fashion absolute inset-0" />
           <span className="relative flex h-full flex-col justify-end gap-1.5 p-4 md:gap-4 md:p-10 md:pb-12">
-            <span className="rise text-xs tracking-widest text-fashion-muted uppercase">01 — Atelier</span>
-            <span className="rise delay-1 font-display text-3xl leading-none md:text-display">Fashion Studio</span>
-            <span className="rise delay-2 hidden max-w-sm text-fashion-fg/90 md:block md:text-lead">
-              Private clothing, cut and styled in Lagos.
+            <img
+              src="/images/logo-fashion.svg"
+              alt="DEstylique Fashion Studio"
+              className="h-8 w-auto max-w-40 object-contain object-left md:h-12"
+            />
+            <span className="rise text-xs tracking-widest text-fashion-muted uppercase">01 — Fashion</span>
+            <span className="rise delay-1 font-display text-base leading-tight md:text-title">
+              {hubFashion}
             </span>
             <span className="rise delay-3 inline-flex h-11 items-center gap-2 text-sm text-gold">
               Enter the studio
@@ -60,12 +64,14 @@ function Hub() {
           />
           <span className="scrim-estate absolute inset-0" />
           <span className="relative flex h-full flex-col justify-end gap-1.5 p-4 pb-6 md:gap-4 md:p-10 md:pb-12">
-            <span className="rise text-xs tracking-widest text-estate-muted uppercase">02 — Practice</span>
-            <span className="rise delay-1 font-display text-3xl leading-none md:text-display">
-              Real Estate & Projects
-            </span>
-            <span className="rise delay-2 hidden max-w-sm text-estate-fg/90 md:block md:text-lead">
-              Residences and sites, managed from drawing to keys.
+            <img
+              src="/images/logo-homes.svg"
+              alt="DEstylique Homes"
+              className="size-10 rounded-full object-cover md:size-14"
+            />
+            <span className="rise text-xs tracking-widest text-estate-muted uppercase">02 — Homes</span>
+            <span className="rise delay-1 font-display text-base leading-tight md:text-title">
+              {hubHomes}
             </span>
             <span className="rise delay-3 inline-flex h-11 items-center gap-2 text-sm text-estate-accent">
               Enter the practice

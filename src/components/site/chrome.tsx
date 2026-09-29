@@ -44,7 +44,13 @@ export function DivisionHeader({
               {link.label}
             </a>
           ))}
-          <Link to={siblingTo} className="border-b border-current pb-0.5">
+          <Link
+            to={siblingTo}
+            className={cn(
+              "border-b pb-0.5",
+              division === "estate" ? "border-estate-accent text-estate-accent" : "border-current",
+            )}
+          >
             {siblingLabel}
           </Link>
         </nav>
